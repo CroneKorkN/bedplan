@@ -1,0 +1,15 @@
+ul
+  - @beds.each do |bed|
+    li
+      div
+        = bed.bed.name
+      div
+        = bed.bed.last_fullfillment.date
+    
+ul
+  - @employees.each do |employee|
+    li
+      div
+        = employee.name
+      div
+        = link_to "+", new_employee_fullfillment_path(employee)

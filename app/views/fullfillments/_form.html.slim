@@ -8,10 +8,10 @@
 
   .field
     = f.label :employee
-    = f.text_field :employee
+    = f.collection_select :employee_id, Employee.all, :id, :name
   .field
     = f.label :bed
-    = f.text_field :bed
+    = f.collection_select :bed_id, Bed.all, :id, :name
   .field
     = f.label :date
     = f.date_select :date

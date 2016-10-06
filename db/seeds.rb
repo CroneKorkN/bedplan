@@ -17,5 +17,5 @@
 end
 
 (1..8).each do |name|
-  Bed.create(name: name).create_fullfillment(date: Date.today, employee: Employee.first)
+  Bed.create(name: name).fullfillments.create(date: Date.today, employee: Employee.first)
 end

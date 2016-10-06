@@ -14,7 +14,8 @@ class FullfillmentsController < ApplicationController
 
   # GET /fullfillments/new
   def new
-    @fullfillment = Fullfillment.new
+    @employee = Employee.find params[:employee_id]
+    @fullfillment = @employee.fullfillments.new
   end
 
   # GET /fullfillments/1/edit
