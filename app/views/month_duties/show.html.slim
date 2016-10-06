@@ -1,0 +1,15 @@
+p#notice = notice
+
+p
+  strong Employee:
+  = @month_duty.employee
+p
+  strong Count:
+  = @month_duty.count
+p
+  strong Date:
+  = @month_duty.date
+
+= link_to 'Edit', edit_month_duty_path(@month_duty)
+'|
+= link_to 'Back', month_duties_path

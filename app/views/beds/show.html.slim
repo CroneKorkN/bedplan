@@ -1,0 +1,9 @@
+p#notice = notice
+
+p
+  strong Name:
+  = @bed.name
+
+= link_to 'Edit', edit_bed_path(@bed)
+'|
+= link_to 'Back', beds_path

@@ -1,0 +1,25 @@
+h1 Listing month_duties
+
+table
+  thead
+    tr
+      th Employee
+      th Count
+      th Date
+      th
+      th
+      th
+
+  tbody
+    - @month_duties.each do |month_duty|
+      tr
+        td = month_duty.employee
+        td = month_duty.count
+        td = month_duty.date
+        td = link_to 'Show', month_duty
+        td = link_to 'Edit', edit_month_duty_path(month_duty)
+        td = link_to 'Destroy', month_duty, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Month duty', new_month_duty_path

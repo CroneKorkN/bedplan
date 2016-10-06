@@ -1,0 +1,1 @@
+json.partial! "month_duties/month_duty", month_duty: @month_duty

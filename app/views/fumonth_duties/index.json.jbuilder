@@ -1,1 +1,0 @@
-json.array! @fumonth_duties, partial: 'fumonth_duties/fumonth_duty', as: :fumonth_duty

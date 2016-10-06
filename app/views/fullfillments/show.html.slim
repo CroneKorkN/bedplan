@@ -1,0 +1,15 @@
+p#notice = notice
+
+p
+  strong Employee:
+  = @fullfillment.employee
+p
+  strong Bed:
+  = @fullfillment.bed
+p
+  strong Date:
+  = @fullfillment.date
+
+= link_to 'Edit', edit_fullfillment_path(@fullfillment)
+'|
+= link_to 'Back', fullfillments_path

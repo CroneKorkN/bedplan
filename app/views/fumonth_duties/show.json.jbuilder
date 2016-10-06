@@ -1,1 +1,0 @@
-json.partial! "fumonth_duties/fumonth_duty", fumonth_duty: @fumonth_duty

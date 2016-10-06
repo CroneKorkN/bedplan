@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :fumonth_duties
+  resources :month_duties
   resources :fullfillments
   resources :beds
   resources :employees

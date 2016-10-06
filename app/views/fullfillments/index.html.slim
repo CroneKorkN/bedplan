@@ -1,0 +1,25 @@
+h1 Listing fullfillments
+
+table
+  thead
+    tr
+      th Employee
+      th Bed
+      th Date
+      th
+      th
+      th
+
+  tbody
+    - @fullfillments.each do |fullfillment|
+      tr
+        td = fullfillment.employee
+        td = fullfillment.bed
+        td = fullfillment.date
+        td = link_to 'Show', fullfillment
+        td = link_to 'Edit', edit_fullfillment_path(fullfillment)
+        td = link_to 'Destroy', fullfillment, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Fullfillment', new_fullfillment_path

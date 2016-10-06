@@ -1,0 +1,15 @@
+p#notice = notice
+
+p
+  strong Name:
+  = @employee.name
+p
+  strong Score:
+  = @employee.score
+p
+  strong Score date:
+  = @employee.score_date
+
+= link_to 'Edit', edit_employee_path(@employee)
+'|
+= link_to 'Back', employees_path
