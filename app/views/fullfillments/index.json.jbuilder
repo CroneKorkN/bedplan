@@ -1,0 +1,1 @@
+json.array! @fullfillments, partial: 'fullfillments/fullfillment', as: :fullfillment
