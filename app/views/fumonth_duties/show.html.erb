@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Employee:</strong>
+  <%= @fumonth_duty.employee %>
+</p>
+
+<p>
+  <strong>Count:</strong>
+  <%= @fumonth_duty.count %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @fumonth_duty.date %>
+</p>
+
+<%= link_to 'Edit', edit_fumonth_duty_path(@fumonth_duty) %> |
+<%= link_to 'Back', fumonth_duties_path %>

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  employee: one
+  count: 1
+  date: 2016-10-06
+
+two:
+  employee: two
+  count: 1
+  date: 2016-10-06
