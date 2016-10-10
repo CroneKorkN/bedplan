@@ -1,0 +1,7 @@
+h2 = "#{@month_names[@month.strftime("%m").to_i.-(1)]} #{@month.strftime("%Y")}"
+
+ul.month_duties
+  - @month_duties.each do |month_duty|
+    li
+      .employee_name = month_duty.employee.name
+      .date = editable month_duty, :count

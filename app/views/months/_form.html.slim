@@ -1,0 +1,15 @@
+= form_for @month do |f|
+  - if @month.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@month.errors.count, "error")} prohibited this month from being saved:"
+      ul
+        - @month.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :date
+    = f.date_select :date
+  .field
+    = f.label :employee_count
+    = f.number_field :employee_count
+  .actions = f.submit

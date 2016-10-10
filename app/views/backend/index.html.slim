@@ -1,0 +1,19 @@
+.backend 
+  h2 Anrechenbare Dienste 
+  ul
+    - @months.each do |month|
+      li = link_to "#{@month_names[month.date.strftime("%m").to_i.-(1)]} #{month.date.strftime("%Y")}", month
+
+  h2
+    | Betten
+    =< link_to "+", new_bed_path
+  ul
+    - @beds.each do |bed|
+      li = link_to bed.name, edit_bed_path(bed)
+
+  h2 
+    | Mitarbeiter
+    =< link_to "+", new_employee_path
+  ul
+    - @employees.each do |employee|
+      li = link_to employee.name, edit_employee_path(employee)

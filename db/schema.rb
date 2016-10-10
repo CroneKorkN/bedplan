@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161006181850) do
+ActiveRecord::Schema.define(version: 20161010174515) do
 
   create_table "beds", force: :cascade do |t|
     t.string   "name"
@@ -21,12 +21,12 @@ ActiveRecord::Schema.define(version: 20161006181850) do
 
   create_table "employees", force: :cascade do |t|
     t.string   "name"
-    t.float    "score"
-    t.date     "score_date"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.float    "score_cache",      default: 0.0
+    t.date     "score_cache_date"
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
     t.index ["name"], name: "index_employees_on_name"
-    t.index ["score"], name: "index_employees_on_score"
+    t.index ["score_cache"], name: "index_employees_on_score_cache"
   end
 
   create_table "fullfillments", force: :cascade do |t|
@@ -35,19 +35,31 @@ ActiveRecord::Schema.define(version: 20161006181850) do
     t.date     "date"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "month_id"
     t.index ["bed_id"], name: "index_fullfillments_on_bed_id"
     t.index ["date"], name: "index_fullfillments_on_date"
     t.index ["employee_id"], name: "index_fullfillments_on_employee_id"
+    t.index ["month_id"], name: "index_fullfillments_on_month_id"
   end
 
   create_table "month_duties", force: :cascade do |t|
     t.integer  "employee_id"
-    t.integer  "count"
+    t.integer  "count",       default: 0
     t.date     "date"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.integer  "month_id"
     t.index ["date"], name: "index_month_duties_on_date"
     t.index ["employee_id"], name: "index_month_duties_on_employee_id"
+    t.index ["month_id"], name: "index_month_duties_on_month_id"
+  end
+
+  create_table "months", force: :cascade do |t|
+    t.date     "date"
+    t.integer  "employee_count"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["date"], name: "index_months_on_date"
   end
 
 end

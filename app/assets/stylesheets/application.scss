@@ -1,0 +1,115 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+ html {
+  font-family: sans-serif;
+ }
+
+body {
+  position: relative;
+}
+
+.backend_link {
+   display: block;
+   position: absolute;
+   right: 0;
+   top: 0;
+}
+
+:not(.frontend) {
+  a, a:link, a:visited {
+    text-decoration: none;
+    color: #966900;
+    font-weight: bold;
+  }
+}
+
+.backend li {
+  list-style-type: none;
+  padding: .2rem .4rem;
+  margin: .4rem;
+  display: inline-block;
+  background: #eee;
+}
+
+body .main {
+  display: flex;
+  flex-direction: column;
+}
+
+.lists {
+  display: inline-flex;
+  flex-direction: row;
+  margin: auto;
+  .side {
+    &:first-of-type {
+      justify-content: flex-end;
+      text-align: right;
+    }
+    &:last-of-type {
+      justify-content: flex-start;
+      text-align: left;
+    }
+    * {
+      display: inline-flex;
+      flex-direction: column;
+      margin: 0;
+      padding: 0;
+    }
+    .beds {
+      .bed {
+        margin: 0.4rem .8rem;
+        position: relative;
+        background: #eee;
+        padding: .3rem .6rem .3rem 5.5rem;
+        .name {
+          font-size: 2rem;
+          font-weight: bold;
+        }
+        .date {
+          position: absolute;
+          top: .5rem;
+          left: -1rem;
+          background: #ddd;
+          padding: .1rem .2rem;
+        }
+      }
+    }
+    .employees {
+      .employee {
+        margin: 0.4rem .8rem;
+        position: relative;
+        background: #eee;
+        padding: .3rem 6rem .3rem .6rem;
+        .name {
+          font-size: 2rem;
+          font-weight: bold;
+          a {
+            text-decoration: none;
+            color: inherit;
+          }
+        }
+        .score {
+          position: absolute;
+          top: .5rem;
+          right: -1rem;
+          background: #ddd;
+          padding: .1rem .2rem;
+        }
+      }
+    }
+  }
+}

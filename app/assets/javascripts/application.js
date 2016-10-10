@@ -12,5 +12,13 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+// require turbolinks
 //= require_tree .
+
+function l(t) {
+  console.log(t);
+}
+
+$(document).ready(function(){
+  $("[data-editable").editable();
+});

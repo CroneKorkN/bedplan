@@ -1,0 +1,18 @@
+.lists.frontend
+  .side
+    ul.beds
+      - @beds.each do |bed|
+        li.bed
+          .name
+            = bed.name
+          .date
+            = nationalize_days_ago bed.last_fullfillment.days_ago
+  .side
+    ul.employees
+      - @employees.each do |employee|
+        li.employee
+          .name
+            = link_to employee.name, new_employee_fullfillment_path(employee)
+          .score
+            = employee.score.-(@min_score)
+            |  Vorsprung

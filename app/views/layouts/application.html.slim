@@ -8,11 +8,11 @@ html
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
 
   body
-    header
-      h1
-        | bedplan
+    .backend_link
+      - unless @frontend
+        = link_to "Bettenplan", frontend_path
+      - if @frontend
+        = link_to "Einstellungen", backend_path
     
-    main
+    main.main
       = yield
-      
-    footer
