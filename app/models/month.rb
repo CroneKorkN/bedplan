@@ -19,7 +19,7 @@ class Month < ApplicationRecord
   end
 
   def self.current
-    find_by date: Date.today.beginning_of_month
+    find_or_create_by date: Date.today.beginning_of_month
   end
 
   after_create do

@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery-ui
 //= require jquery_ujs
 // require turbolinks
 //= require_tree .
@@ -20,5 +21,28 @@ function l(t) {
 }
 
 $(document).ready(function(){
-  $("[data-editable").editable();
+  $("[data-editable]").editable();
+  $('.bed').droppable({
+    drop: function( event, ui ) {
+      l("employee " + $(ui.draggable.context).attr('data-employee-id') + " fullfilled " + $(this).attr('data-bed-id'));
+
+      employee_id = $(ui.draggable.context).attr('data-employee-id');
+      bed_id = $(this).attr('data-bed-id');
+      $.ajax({
+        type: "POST",
+        url: "/fullfillments",
+        context: this,
+        contentType: "application/json; charset=utf-8",
+        data: '{"fullfillment":{"employee_id":"'+employee_id+'","bed_id":"'+bed_id+'"}}',
+        dataType: 'html',
+      }).done(function(data) {
+        l(data);
+        location.reload();
+      });
+
+    }
+  });
+  $('.employee').draggable({
+    helper: "clone",
+  });
 });

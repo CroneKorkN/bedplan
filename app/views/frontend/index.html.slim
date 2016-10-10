@@ -2,7 +2,7 @@
   .side
     ul.beds
       - @beds.each do |bed|
-        li.bed
+        li.bed data-bed-id="#{bed.id}"
           .name
             = bed.name
           .date data-warn-level="#{bed.warn_level}"
@@ -10,7 +10,7 @@
   .side
     ul.employees
       - @employees.each do |employee|
-        li.employee
+        li.employee data-employee-id="#{employee.id}"
           .name
             = link_to employee.name, new_employee_month_fullfillment_path(employee, Month.current)
           .score

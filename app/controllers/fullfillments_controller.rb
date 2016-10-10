@@ -19,6 +19,13 @@ class FullfillmentsController < ApplicationController
     else
       @employee = Employee.first
     end
+
+    if params[:month_id]
+      @month = Month.find params[:month_id]
+    else
+      @month = Month.first
+    end
+
     @month = Month.find(params[:month_id])
     @fullfillment = @month.fullfillments.new employee: @employee, date: @month.date
   end
@@ -31,6 +38,9 @@ class FullfillmentsController < ApplicationController
   # POST /fullfillments.json
   def create
     @fullfillment = Fullfillment.new(fullfillment_params)
+    unless fullfillment_params[:date]
+      @fullfillment.date = Date.today
+    end
     @fullfillment.month = Month.find_by date: @fullfillment.date.beginning_of_month
 
     respond_to do |format|
