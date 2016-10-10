@@ -5,14 +5,14 @@
         li.bed
           .name
             = bed.name
-          .date
+          .date data-warn-level="#{bed.warn_level}"
             = nationalize_days_ago bed.last_fullfillment.days_ago
   .side
     ul.employees
       - @employees.each do |employee|
         li.employee
           .name
-            = link_to employee.name, new_employee_fullfillment_path(employee)
+            = link_to employee.name, new_employee_month_fullfillment_path(employee, Month.current)
           .score
-            = employee.score.-(@min_score)
+            = (employee.score - @min_score).round
             |  Vorsprung

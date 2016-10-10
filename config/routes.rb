@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
-  resources :months
+  resources :months do
+    resources :fullfillments
+  end
   root to: "frontend#index", as: 'frontend'
   get "backend", to: "backend#index", as: 'backend'
-  #get "month/:month", to: "backend#month", as: 'month'
 
   resources :month_duties
   resources :fullfillments
@@ -10,6 +11,8 @@ Rails.application.routes.draw do
     resources :fullfillments
   end
   resources :employees do
-    resources :fullfillments
-  end
+    resources :months do
+      resources :fullfillments
+    end
+  end 
 end

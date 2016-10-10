@@ -24,9 +24,14 @@ body {
 
 .backend_link {
    display: block;
-   position: absolute;
+   position: fixed;
    right: 0;
-   top: 0;
+   bottom: 0;
+   padding: .5rem 1rem;
+}
+
+a:hover {
+  background: #ffe5aa;
 }
 
 :not(.frontend) {
@@ -37,12 +42,29 @@ body {
   }
 }
 
-.backend li {
-  list-style-type: none;
-  padding: .2rem .4rem;
-  margin: .4rem;
-  display: inline-block;
-  background: #eee;
+.backend {
+  ul {
+    padding-left: 1em;
+    margin: 0 1em;
+    li {
+      list-style-type: none;
+      padding: .2rem .4rem;
+      margin: .4rem;
+      display: inline-block;
+      background: #eee;
+      > div {
+        display: inline-block;
+      }
+      .bed, .employee {
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+.editable {
+  padding: .4rem;
+  background-color: #ffe5aa;
 }
 
 body .main {
@@ -63,11 +85,40 @@ body .main {
       justify-content: flex-start;
       text-align: left;
     }
-    * {
+    ul {
       display: inline-flex;
       flex-direction: column;
       margin: 0;
       padding: 0;
+      li {
+        list-style-type: none;
+        box-shadow: 0 .1rem .3rem rgba(0,0,0,.2);
+      }
+      .date[data-warn-level="0"] {
+        background: #c9e5c5;
+      }
+      .date[data-warn-level="1"] {
+        background: #ffe093;
+      }
+      .date[data-warn-level="2"] {
+        background: #ff9393;
+      }
+      .name {
+        font-size: 1.6rem;
+        line-height: 1.6rem;
+        font-weight: bold;
+        a {
+          text-decoration: none;
+          color: inherit;
+        }
+      }
+      .date, .score {
+        position: absolute;
+        top: .5rem;
+        background: #ddd;
+        padding: .1rem .2rem;
+        box-shadow: 0 .1rem .3rem rgba(0,0,0,.2)
+      }
     }
     .beds {
       .bed {
@@ -75,16 +126,8 @@ body .main {
         position: relative;
         background: #eee;
         padding: .3rem .6rem .3rem 5.5rem;
-        .name {
-          font-size: 2rem;
-          font-weight: bold;
-        }
         .date {
-          position: absolute;
-          top: .5rem;
           left: -1rem;
-          background: #ddd;
-          padding: .1rem .2rem;
         }
       }
     }
@@ -95,19 +138,9 @@ body .main {
         background: #eee;
         padding: .3rem 6rem .3rem .6rem;
         .name {
-          font-size: 2rem;
-          font-weight: bold;
-          a {
-            text-decoration: none;
-            color: inherit;
-          }
         }
         .score {
-          position: absolute;
-          top: .5rem;
           right: -1rem;
-          background: #ddd;
-          padding: .1rem .2rem;
         }
       }
     }

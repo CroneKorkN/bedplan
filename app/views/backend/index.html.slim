@@ -9,11 +9,18 @@
     =< link_to "+", new_bed_path
   ul
     - @beds.each do |bed|
-      li = link_to bed.name, edit_bed_path(bed)
+      li
+        => editable bed, :name
+        | &nbsp;&nbsp;
+        =< link_to 'X', bed, data: { confirm: "Bett #{bed.name} löschen?" }, method: :delete
+
 
   h2 
     | Mitarbeiter
     =< link_to "+", new_employee_path
   ul
     - @employees.each do |employee|
-      li = link_to employee.name, edit_employee_path(employee)
+      li 
+        = editable employee, :name
+        | &nbsp;&nbsp;
+        =< link_to 'X', employee, data: { confirm: "Mitarbeiter #{employee.name} löschen?" }, method: :delete

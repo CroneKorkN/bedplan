@@ -39,9 +39,7 @@ module ApplicationHelper
       data-editable-value=\"#{raw_value}\"\
       data-editable-url=\"#{url}\"\
       data-editable-display-with=\"#{display_with}\"
-      #{trigger_text}>
-        #{value}
-      </#{tag.to_s}>
+      #{trigger_text}>#{value}</#{tag.to_s}>
       ".html_safe
   end
 

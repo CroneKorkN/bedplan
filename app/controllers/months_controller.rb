@@ -1,14 +1,10 @@
 class MonthsController < ApplicationController
   before_action :set_month, only: [:show, :edit, :update, :destroy]
 
-  # GET /months
-  # GET /months.json
   def index
     @months = Month.all
   end
 
-  # GET /months/1
-  # GET /months/1.json
   def show
     @month_names = Month.names
     @month_duties = []
@@ -19,17 +15,13 @@ class MonthsController < ApplicationController
     end
   end
 
-  # GET /months/new
   def new
     @month = Month.new
   end
 
-  # GET /months/1/edit
   def edit
   end
 
-  # POST /months
-  # POST /months.json
   def create
     @month = Month.new(month_params)
 
@@ -44,8 +36,6 @@ class MonthsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /months/1
-  # PATCH/PUT /months/1.json
   def update
     respond_to do |format|
       if @month.update(month_params)
@@ -58,8 +48,6 @@ class MonthsController < ApplicationController
     end
   end
 
-  # DELETE /months/1
-  # DELETE /months/1.json
   def destroy
     @month.destroy
     respond_to do |format|

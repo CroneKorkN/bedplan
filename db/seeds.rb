@@ -6,7 +6,6 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Month.create date: Date.today.-(1.month).beginning_of_month
 
 [
   "Nadja",
@@ -20,17 +19,19 @@ Month.create date: Date.today.-(1.month).beginning_of_month
   Employee.create(
     name: name,
     score_cache_date: Date.today.-(1.month).beginning_of_month
-  ).month_duties.create(
-    date: Date.today.beginning_of_month,
-    count: rand(12),
-    month: Month.first
   )
 end
 
 (201..222).each do |name|
   Bed.create(
     name: name
-  ).fullfillments.create(
+  )
+end
+
+Month.create date: Date.today.-(1.month).beginning_of_month # after employees
+
+Bed.all.each do |bed|
+  bed.fullfillments.create(
     date: Date.today.-(rand(42).days),
     employee: Employee.first,
     month: Month.first

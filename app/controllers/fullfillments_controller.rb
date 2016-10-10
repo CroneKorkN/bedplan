@@ -14,8 +14,13 @@ class FullfillmentsController < ApplicationController
 
   # GET /fullfillments/new
   def new
-    @employee = Employee.find params[:employee_id]
-    @fullfillment = @employee.fullfillments.new
+    if params[:employee_id]
+      @employee = Employee.find params[:employee_id]
+    else
+      @employee = Employee.first
+    end
+    @month = Month.find(params[:month_id])
+    @fullfillment = @month.fullfillments.new employee: @employee, date: @month.date
   end
 
   # GET /fullfillments/1/edit
@@ -26,10 +31,11 @@ class FullfillmentsController < ApplicationController
   # POST /fullfillments.json
   def create
     @fullfillment = Fullfillment.new(fullfillment_params)
+    @fullfillment.month = Month.find_by date: @fullfillment.date.beginning_of_month
 
     respond_to do |format|
       if @fullfillment.save
-        format.html { redirect_to @fullfillment, notice: 'Fullfillment was successfully created.' }
+        format.html { redirect_to @fullfillment.month, notice: 'Fullfillment was successfully created.' }
         format.json { render :show, status: :created, location: @fullfillment }
       else
         format.html { render :new }
@@ -41,9 +47,11 @@ class FullfillmentsController < ApplicationController
   # PATCH/PUT /fullfillments/1
   # PATCH/PUT /fullfillments/1.json
   def update
+    @fullfillment.month = Month.find_by date: @fullfillment.date.beginning_of_month
+
     respond_to do |format|
       if @fullfillment.update(fullfillment_params)
-        format.html { redirect_to @fullfillment, notice: 'Fullfillment was successfully updated.' }
+        format.html { redirect_to @fullfillment.month, notice: 'Fullfillment was successfully updated.' }
         format.json { render :show, status: :ok, location: @fullfillment }
       else
         format.html { render :edit }
@@ -57,7 +65,7 @@ class FullfillmentsController < ApplicationController
   def destroy
     @fullfillment.destroy
     respond_to do |format|
-      format.html { redirect_to fullfillments_url, notice: 'Fullfillment was successfully destroyed.' }
+      format.html { redirect_to @fullfillment.month, notice: 'Fullfillment was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -70,6 +78,6 @@ class FullfillmentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def fullfillment_params
-      params.require(:fullfillment).permit(:employee_id, :bed_id, :date)
+      params.require(:fullfillment).permit(:employee_id, :bed_id, :month_id, :date)
     end
 end

@@ -11,8 +11,8 @@ html
     .backend_link
       - unless @frontend
         = link_to "Bettenplan", frontend_path
-      - if @frontend
-        = link_to "Einstellungen", backend_path
+        |  &bull; 
+      = link_to "Einstellungen", backend_path
     
     main.main
       = yield
