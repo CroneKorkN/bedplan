@@ -1,6 +1,6 @@
 class Month < ApplicationRecord
-  has_many :fullfillments
-  has_many :month_duties
+  has_many :fullfillments, dependent: :destroy
+  has_many :month_duties, dependent: :destroy
 
   def self.create_missing
     month = Employee.all.order("created_at ASC").first.created_at.beginning_of_month

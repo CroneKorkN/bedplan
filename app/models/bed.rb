@@ -1,5 +1,5 @@
 class Bed < ApplicationRecord
-  has_many :fullfillments
+  has_many :fullfillments, destroy: :dependent
 
   def last_fullfillment
     fullfillments.order("date ASC").last

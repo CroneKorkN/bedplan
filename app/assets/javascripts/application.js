@@ -14,6 +14,7 @@
 //= require jquery-ui
 //= require jquery_ujs
 // require turbolinks
+//= jquery.ui.touch-punch.min.js
 //= require_tree .
 
 function l(t) {
