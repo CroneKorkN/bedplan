@@ -15,7 +15,8 @@
  */
 
 html {
-  font-family: serif;
+  font-family: georgia;
+  letter-spacing: .05em;
   background: #eee;
 }
 
@@ -23,6 +24,7 @@ body {
   position: relative;
   transition: all 1s;
   background: #eee;
+  font-size: 14px;
 }
 
 .loading {
@@ -54,11 +56,12 @@ a:hover {
     padding-left: 1em;
     margin: 0 1em;
     li {
+      border-bottom: .2em solid rgba(0,0,0,.15);
       list-style-type: none;
       padding: .2rem .4rem;
       margin: .4rem;
       display: inline-block;
-      background: #eee;
+      background: #fff;
       > div {
         display: inline-block;
       }
@@ -100,25 +103,25 @@ body .main {
       padding: 0;
       li {
         list-style-type: none;
-        border-bottom: .3em solid #ddd;
+        border-bottom: .2em solid rgba(0,0,0,.15);
         background-color: white;
-        margin: 0.4rem .8rem;
+        margin: .4rem .8rem;
         position: relative;
-        padding: .3rem .6rem;
+        padding: .2em .6em;
+        font-size: 1.7rem;
         .name {
-          font-size: 1.6rem;
-          line-height: 1.6rem;
-          font-weight: bold;
+          line-height: 1.7rem;
         }
         .date, .score {
-          font-family: sans-serif;
           position: absolute;
           top: -.2rem;
           background: #999;
-          padding: .1em .4em;
+          padding: .1em .2em;
           color: white;
+          border-bottom: .2em solid rgba(0,0,0,.15);
+          font-size: 1rem;
           font-weight: bold;
-          #box-shadow: 0 .1rem .3rem rgba(0,0,0,.2)
+          text-shadow: 0 0 .1em rgba(0,0,0,.2);
         }
       }
       .date[data-warn-level="0"] {
@@ -133,20 +136,20 @@ body .main {
     }
     .beds {
       .bed {
-        padding-left: 4.5rem;
+        padding-left: 5.5rem;
         .date {
-          left: -.8rem;
+          left: -.5rem;
         }
         white-space: nowrap;
       }
     }
     .employees {
       .employee {
-        padding-right: 2.2rem;
+        padding-right: 2.7rem;
         .name {
         }
         .score {
-          right: -.8rem;
+          right: -.5rem;
         }
       }
     }
