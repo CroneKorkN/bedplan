@@ -16,15 +16,17 @@
 
 html {
   font-family: sans-serif;
+  background: #eee;
 }
 
 body {
   position: relative;
   transition: all 1s;
+  background: #eee;
 }
 
 .loading {
-  filter: grayscale(0.5) blur(.8rem);
+  filter: grayscale(0.5) blur(.3rem);
 }
 
 .backend_link {
@@ -82,6 +84,7 @@ body .main {
   flex-direction: row;
   margin: auto;
   .side {
+    //display: inline-block;
     &:first-of-type {
       justify-content: flex-end;
       text-align: right;
@@ -97,16 +100,26 @@ body .main {
       padding: 0;
       li {
         list-style-type: none;
-        box-shadow: 0 .1rem .3rem rgba(0,0,0,.2);
+        border-bottom: .3em solid #ddd;
+        background-color: white;
+        .date, .score {
+          position: absolute;
+          top: -.2rem;
+          background: #999;
+          padding: .1em .4em;
+          color: white;
+          font-weight: bold;
+          #box-shadow: 0 .1rem .3rem rgba(0,0,0,.2)
+        }
       }
       .date[data-warn-level="0"] {
-        background: #c9e5c5;
+        background: #8dbc8b;
       }
       .date[data-warn-level="1"] {
-        background: #ffe093;
+        background: #bfc136;
       }
       .date[data-warn-level="2"] {
-        background: #ff9393;
+        background: #c94e4e;
       }
       .name {
         font-size: 1.6rem;
@@ -117,35 +130,27 @@ body .main {
           color: inherit;
         }
       }
-      .date, .score {
-        position: absolute;
-        top: -.1rem;
-        background: #ddd;
-        padding: .1rem .2rem;
-        box-shadow: 0 .1rem .3rem rgba(0,0,0,.2)
-      }
     }
     .beds {
       .bed {
         margin: 0.4rem .8rem;
         position: relative;
-        background: #eee;
-        padding: .3rem .6rem .3rem 5.8rem;
+        padding: .3rem .6rem .3rem 4.5rem;
         .date {
-          left: -1rem;
+          left: -.8rem;
         }
+        white-space: nowrap;
       }
     }
     .employees {
       .employee {
         margin: 0.4rem .8rem;
         position: relative;
-        background: #eee;
-        padding: .3rem 2rem .3rem .6rem;
+        padding: .3rem 2.2rem .3rem .6rem;
         .name {
         }
         .score {
-          right: -1rem;
+          right: -.8rem;
         }
       }
     }

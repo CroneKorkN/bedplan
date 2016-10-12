@@ -14,7 +14,15 @@
   "Laura",
   "Jonas",
   "Peter",
-  "Susi"
+  "Susi",
+  "Moritz",
+  "Aiche",
+  "Barbara",
+  "Michelle",
+  "Alexandra",
+  "Thomas G.",
+  "Thomas S.",
+  "Angelika"
 ].each do |name|
   Employee.create(
     name: name,
@@ -22,7 +30,22 @@
   )
 end
 
-(201..222).each do |name|
+
+[
+  '111A',
+  '111B',
+  (112..120).to_a,
+  (211..220).to_a,
+  '231A',
+  '231B',
+  '232A',
+  '232B',
+  (233..238).to_a,
+  (251..254).to_a,
+  '255A',
+  '255B',
+  (256..260).to_a,
+].flatten.each do |name|
   Bed.create(
     name: name
   )
@@ -32,7 +55,7 @@ Month.create date: Date.today.-(1.month).beginning_of_month # after employees
 
 Bed.all.each do |bed|
   bed.fullfillments.create(
-    date: Date.today.-(rand(42).days),
+    date: Date.today.-(rand(35).days),
     employee: Employee.first,
     month: Month.first
   )

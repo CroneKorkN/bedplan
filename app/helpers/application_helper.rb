@@ -5,7 +5,7 @@ module ApplicationHelper
   end
 
   def nationalize_days_ago(count)
-    "vor #{count} Tag#{count != 1 ? "en" : ""}"
+    "#{count} Tag#{count != 1 ? "e" : ""}"
   end
 
   def editable(
