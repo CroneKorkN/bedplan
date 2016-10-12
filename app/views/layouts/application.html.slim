@@ -1,6 +1,6 @@
 doctype html
 html
-  head>
+  head
     title Bedplan
     = csrf_meta_tags
     meta name="viewport" content="initial-scale=1.5, maximum-scale=1.5, user-scalable=no"
@@ -17,3 +17,4 @@ html
     
     main.main
       = yield
+    .loading

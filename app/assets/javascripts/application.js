@@ -25,6 +25,7 @@ $(document).ready(function(){
   $("[data-editable]").editable();
   $('.bed').droppable({
     drop: function( event, ui ) {
+      $('body').addClass("loading");
       l("employee " + $(ui.draggable.context).attr('data-employee-id') + " fullfilled " + $(this).attr('data-bed-id'));
 
       employee_id = $(ui.draggable.context).attr('data-employee-id');
