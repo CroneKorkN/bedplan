@@ -15,7 +15,7 @@
  */
 
 html {
-  font-family: sans-serif;
+  font-family: serif;
   background: #eee;
 }
 
@@ -102,7 +102,16 @@ body .main {
         list-style-type: none;
         border-bottom: .3em solid #ddd;
         background-color: white;
+        margin: 0.4rem .8rem;
+        position: relative;
+        padding: .3rem .6rem;
+        .name {
+          font-size: 1.6rem;
+          line-height: 1.6rem;
+          font-weight: bold;
+        }
         .date, .score {
+          font-family: sans-serif;
           position: absolute;
           top: -.2rem;
           background: #999;
@@ -121,21 +130,10 @@ body .main {
       .date[data-warn-level="2"] {
         background: #c94e4e;
       }
-      .name {
-        font-size: 1.6rem;
-        line-height: 1.6rem;
-        font-weight: bold;
-        a {
-          text-decoration: none;
-          color: inherit;
-        }
-      }
     }
     .beds {
       .bed {
-        margin: 0.4rem .8rem;
-        position: relative;
-        padding: .3rem .6rem .3rem 4.5rem;
+        padding-left: 4.5rem;
         .date {
           left: -.8rem;
         }
@@ -144,9 +142,7 @@ body .main {
     }
     .employees {
       .employee {
-        margin: 0.4rem .8rem;
-        position: relative;
-        padding: .3rem 2.2rem .3rem .6rem;
+        padding-right: 2.2rem;
         .name {
         }
         .score {
