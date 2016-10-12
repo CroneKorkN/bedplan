@@ -34,7 +34,7 @@ $(document).ready(function(){
         context: this,
         contentType: "application/json; charset=utf-8",
         data: '{"fullfillment":{"employee_id":"'+employee_id+'","bed_id":"'+bed_id+'"}}',
-        dataType: 'html',
+        // dataType: 'html',
       }).done(function(data) {
         l(data);
         location.reload();

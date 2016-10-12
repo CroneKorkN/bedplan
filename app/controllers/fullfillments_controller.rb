@@ -23,7 +23,7 @@ class FullfillmentsController < ApplicationController
     if params[:month_id]
       @month = Month.find params[:month_id]
     else
-      @month = Month.first
+      @month = Month.current
     end
 
     @month = Month.find(params[:month_id])

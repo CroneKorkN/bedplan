@@ -12,7 +12,7 @@
       - @employees.each do |employee|
         li.employee data-employee-id="#{employee.id}"
           .name
-            = link_to employee.name, new_employee_month_fullfillment_path(employee, Month.current)
+            = employee.name
           .score
             = (employee.score - @min_score).round
             |  Vorsprung

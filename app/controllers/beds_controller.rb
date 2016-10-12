@@ -12,7 +12,7 @@ class BedsController < ApplicationController
     @bed = Bed.new(bed_params)
 
     if @bed.save
-      redirect_to @bed, notice: 'Bed was successfully created.'
+      redirect_to backend_path, notice: 'Bed was successfully created.'
     else
       render :new
     end
