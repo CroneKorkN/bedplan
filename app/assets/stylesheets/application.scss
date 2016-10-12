@@ -15,7 +15,6 @@
  */
 
 html {
-  font-family: sans-serif;
   background: #eee;
 }
 
@@ -23,6 +22,7 @@ body {
   position: relative;
   transition: all 1s;
   background: #eee;
+  font-family: "Georgia", serif;
 }
 
 .loading {
@@ -58,7 +58,7 @@ a:hover {
       padding: .2rem .4rem;
       margin: .4rem;
       display: inline-block;
-      background: #eee;
+      background: white;
       > div {
         display: inline-block;
       }
@@ -99,17 +99,30 @@ body .main {
       margin: 0;
       padding: 0;
       li {
+        display: flex;
+        flex-direction: row;
         list-style-type: none;
         border-bottom: .3em solid #ddd;
         background-color: white;
+        margin: .5em 1em;
+        width: 12em;
+        > * {
+          text-align: center;
+        }
+        .name {
+          font-size: 1.4rem;
+          line-height: 1.4rem;
+          width: 70%;
+          a {
+            text-decoration: none;
+            color: inherit;
+          }
+        }
         .date, .score {
-          position: absolute;
-          top: -.2rem;
           background: #999;
-          padding: .1em .4em;
           color: white;
           font-weight: bold;
-          #box-shadow: 0 .1rem .3rem rgba(0,0,0,.2)
+          width: 30%;
         }
       }
       .date[data-warn-level="0"] {
@@ -121,38 +134,10 @@ body .main {
       .date[data-warn-level="2"] {
         background: #c94e4e;
       }
-      .name {
-        font-size: 1.6rem;
-        line-height: 1.6rem;
-        font-weight: bold;
-        a {
-          text-decoration: none;
-          color: inherit;
-        }
-      }
     }
-    .beds {
-      .bed {
-        margin: 0.4rem .8rem;
-        position: relative;
-        padding: .3rem .6rem .3rem 4.5rem;
-        .date {
-          left: -.8rem;
-        }
-        white-space: nowrap;
-      }
-    }
-    .employees {
-      .employee {
-        margin: 0.4rem .8rem;
-        position: relative;
-        padding: .3rem 2.2rem .3rem .6rem;
-        .name {
-        }
-        .score {
-          right: -.8rem;
-        }
-      }
+    li.bed {
+      flex-direction: row-reverse;
+      width: 8em;
     }
   }
 }
