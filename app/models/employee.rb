@@ -1,6 +1,6 @@
 class Employee < ApplicationRecord
-  has_many :fullfillments, destroy: :dependent
-  has_many :month_duties, destroy: :dependent
+  has_many :fullfillments, dependent: :destroy
+  has_many :month_duties, dependent: :destroy
 
   def score
     score = 0
