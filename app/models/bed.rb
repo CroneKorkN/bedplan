@@ -2,7 +2,10 @@ class Bed < ApplicationRecord
   has_many :fullfillments, dependent: :destroy
 
   def last_fullfillment
-    fullfillments.order("date ASC").last
+    fullfillments.order("date ASC").last || fullfillments.new(
+      employee: Employee.find_by(name: "<SYSTEM_EMPLOYEE>"),
+      date: created_at
+    )
   end
 
   def warn_level

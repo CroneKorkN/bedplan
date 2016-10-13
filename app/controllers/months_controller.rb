@@ -13,6 +13,7 @@ class MonthsController < ApplicationController
         date: @month
       )
     end
+
   end
 
   def new

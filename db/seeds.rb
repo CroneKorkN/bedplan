@@ -8,6 +8,7 @@
 
 
 [
+  "<SYSTEM_EMPLOYEE>",
   "Nadja",
   "Irene",
   "Amanda",
@@ -54,9 +55,9 @@ end
 Month.create date: Date.today.-(1.month).beginning_of_month # after employees
 
 Bed.all.each do |bed|
-  bed.fullfillments.create(
-    date: Date.today.-(rand(35).days),
-    employee: Employee.first,
-    month: Month.first
-  )
+#  bed.fullfillments.create(
+#    date: Date.today.-(rand(35).days),
+#    employee: Employee.find_by(name: "<SYSTEM_EMPLOYEE>"),
+#    month: Month.first
+#  )
 end

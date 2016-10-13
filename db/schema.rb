@@ -21,10 +21,11 @@ ActiveRecord::Schema.define(version: 20161010192923) do
 
   create_table "employees", force: :cascade do |t|
     t.string   "name"
+    t.boolean  "active",           default: true, null: false
     t.float    "score_cache",      default: 0.0
     t.date     "score_cache_date"
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
     t.index ["name"], name: "index_employees_on_name"
     t.index ["score_cache"], name: "index_employees_on_score_cache"
   end
