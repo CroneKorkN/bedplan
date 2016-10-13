@@ -28,7 +28,7 @@ $.fn.editable = function() {
     var value = $(this).html().trim();
     var dataType = $(this).data("editable-datatype");
     var display_with = $(this).data("editable-display-with");
-    
+
     if (validate_editable(value, dataType)) {
       $(this).attr("data-editable-invalid", false);
     } else {
@@ -37,6 +37,8 @@ $.fn.editable = function() {
     }
 
     l("SEND");
+    l("url:" + url);
+    l('{"'+model+'":{"'+method+'":"'+value+'"},"id":"'+id+'"}');
 
     // send
     $.ajax({
