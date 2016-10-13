@@ -6,7 +6,6 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-
 [
   "<SYSTEM_EMPLOYEE>",
   "Nadja",
@@ -14,13 +13,11 @@
   "Amanda",
   "Laura",
   "Jonas",
-  "Peter",
-  "Susi",
   "Moritz",
-  "Aiche",
+  "Ayse",
   "Barbara",
   "Michelle",
-  "Alexandra",
+  "Aleksandra",
   "Thomas G.",
   "Thomas S.",
   "Angelika"
@@ -30,7 +27,6 @@
     score_cache_date: Date.today.-(1.month).beginning_of_month
   )
 end
-
 
 [
   '111A',
