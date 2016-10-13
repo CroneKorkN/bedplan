@@ -1,7 +1,7 @@
 class Employee < ApplicationRecord
   has_many :fullfillments, dependent: :destroy
   has_many :month_duties, dependent: :destroy
-  default_scope ->{where("name != ?", "<SYSTEM_EMPLOYEE>")}
+  default_scope ->{where("name != ?", "<SYSTEM_EMPLOYEE>").order(:name)}
 
   def score
     score = 0
