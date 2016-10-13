@@ -5,9 +5,9 @@ class Employee < ApplicationRecord
 
   def score
     score = 0
-    Month.all.each do |month|
-      puts "#{name}: + #{fullfillments.where(month: month).count} - #{month.duty_factor}"
-      score += fullfillments.where(month: month).count - month.duty_factor
+    Month.where("date <= ?", Date.today).each do |month|
+      score += fullfillments.where(month: month).count
+      score -= Bed.all.count * month_duties.find_by(month: month).count / month.month_duties.sum(:count)
     end
     score
   end
