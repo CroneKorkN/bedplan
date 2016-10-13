@@ -37,6 +37,10 @@ body {
    right: 0;
    bottom: 0;
    padding: .5rem 1rem;
+   z-index: 999;
+}
+.backend .backend_link {
+  background: #fff;
 }
 
 a:hover {
@@ -75,6 +79,7 @@ a:hover {
 .editable {
   padding: .4rem;
   background-color: #ffe5aa;
+  border-bottom: .2em solid rgba(0,0,0,.15);
 }
 
 body .main {
@@ -116,7 +121,7 @@ body .main {
           position: absolute;
           top: -.2rem;
           background: #999;
-          padding: .1em .2em;
+          padding: .1em .4em;
           color: white;
           border-bottom: .2em solid rgba(0,0,0,.15);
           font-size: 1rem;

@@ -27,6 +27,12 @@ $(document).ready(function(){
   $("[data-editable]").editable();
 
   $('.bed').droppable({
+    helper: function(e) {
+      var original = $(e.target).hasClass("ui-draggable") ? $(e.target) :  $(e.target).closest(".ui-draggable");
+      return original.clone().css({
+        width: original.width() // or outerWidth*
+      });
+    },
     drop: function( event, ui ) {
       $('body').addClass("loading");
       l("employee " + $(ui.draggable.context).attr('data-employee-id') + " fullfilled " + $(this).attr('data-bed-id'));
