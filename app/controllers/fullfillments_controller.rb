@@ -41,7 +41,7 @@ class FullfillmentsController < ApplicationController
     unless fullfillment_params[:date]
       @fullfillment.date = Date.today
     end
-    @fullfillment.month = Month.find_by date: @fullfillment.date.beginning_of_month
+    @fullfillment.month = Month.find_or_create_by date: @fullfillment.date.beginning_of_month
 
     respond_to do |format|
       if @fullfillment.save

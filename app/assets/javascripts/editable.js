@@ -1,11 +1,4 @@
-$.fn.editable = function(trigger=true) {
-  if (trigger === false) {
-    this.unbind();
-    $(this).removeAttr("contenteditable");
-    $(this).removeClass("editing");
-    return $(this);
-  }
-
+$.fn.editable = function() {
   var old_value = "";
 
   $(this).attr("contenteditable", "");
@@ -35,13 +28,15 @@ $.fn.editable = function(trigger=true) {
     var value = $(this).html().trim();
     var dataType = $(this).data("editable-datatype");
     var display_with = $(this).data("editable-display-with");
-    $("[data-editable]").editable();
+    
     if (validate_editable(value, dataType)) {
       $(this).attr("data-editable-invalid", false);
     } else {
       $(this).attr("data-editable-invalid", true);
       return;
     }
+
+    l("SEND");
 
     // send
     $.ajax({

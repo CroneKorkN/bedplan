@@ -52,7 +52,7 @@ end
   )
 end
 
-Month.create date: Date.today.-(1.month).beginning_of_month # after employees
+Month.create_missing
 
 Bed.all.each do |bed|
 #  bed.fullfillments.create(

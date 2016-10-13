@@ -22,7 +22,10 @@ function l(t) {
 }
 
 $(document).ready(function(){
+  l("initialize");
+
   $("[data-editable]").editable();
+
   $('.bed').droppable({
     drop: function( event, ui ) {
       $('body').addClass("loading");
@@ -38,7 +41,7 @@ $(document).ready(function(){
         data: '{"fullfillment":{"employee_id":"'+employee_id+'","bed_id":"'+bed_id+'"}}',
         // dataType: 'html',
       }).done(function(data) {
-        l(data);
+        l("RESP");
         location.reload();
       });
 

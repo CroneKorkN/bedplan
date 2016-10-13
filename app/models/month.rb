@@ -30,7 +30,7 @@ class Month < ApplicationRecord
 
   def create_month_duties
     Employee.all.each do |employee|
-      puts month_duties.create employee: employee
+      month_duties.create employee: employee
     end
   end
 end

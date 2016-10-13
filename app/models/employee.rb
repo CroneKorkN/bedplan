@@ -6,7 +6,8 @@ class Employee < ApplicationRecord
   def score
     score = 0
     Month.all.each do |month|
-      score += (fullfillments.where(month: month).count - month.duty_factor)
+      puts "#{name}: + #{fullfillments.where(month: month).count} - #{month.duty_factor}"
+      score += fullfillments.where(month: month).count - month.duty_factor
     end
     score
   end

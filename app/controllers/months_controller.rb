@@ -7,13 +7,6 @@ class MonthsController < ApplicationController
 
   def show
     @month_names = Month.names
-    @month_duties = []
-    Employee.all.each do |employee|
-      @month_duties << employee.month_duties.find_or_create_by(
-        date: @month
-      )
-    end
-
   end
 
   def new
